@@ -116,29 +116,7 @@
 ## 1. Giriş
 
 ### OpenLane Nedir?
-OpenLane, açık kaynaklı bir donanım tasarım akışı (hardware design flow) aracıdır. Bu araç, özellikle ASIC (Application-Specific Integrated Circuit) tasarım süreçlerini otomatikleştirmek ve bu süreçleri daha erişilebilir hale getirmek amacıyla geliştirilmiştir. OpenLane, RTL (Register Transfer Level) tasarımından başlayarak fiziksel tasarımın tamamlanmasına kadar olan tüm adımları kapsayan bir tasarım akışı sunar.
-
-### OpenLane'in Tarihçesi ve Gelişimi
-OpenLane, Google ve Efabless gibi kuruluşların desteğiyle geliştirilmiş bir projedir. Proje, açık kaynak donanım tasarımına olan ilginin artması ve bu alanda daha erişilebilir araçlara duyulan ihtiyaç sonucunda ortaya çıkmıştır. OpenLane, OpenROAD (Open-source EDA) projesinin bir parçası olarak geliştirilmiştir.
-
-### Açık Kaynak Donanım Tasarımı ve OpenLane'in Rolü
-Açık kaynak donanım tasarımı, yazılım dünyasında olduğu gibi, donanım tasarımının da şeffaf, erişilebilir ve topluluk tarafından geliştirilebilir olmasını amaçlayan bir yaklaşımdır. OpenLane, bu hareketin önemli bir parçasıdır.
-
-### OpenLane'in Temel Amacı
-OpenLane'in temel amacı, donanım tasarım süreçlerini demokratikleştirmek ve bu süreçleri daha erişilebilir hale getirmektir.
-
-### OpenLane'in Öne Çıkan Özellikleri
-- Açık Kaynak
-- Otomatik Tasarım Akışı
-- Çoklu PDK Desteği
-- Docker ile Kolay Kurulum
-- Topluluk Desteği
-
-### Neden OpenLane Kullanmalıyız?
-- Düşük Maliyet
-- Eğitim İçin İdeal
-- Esneklik
-- Topluluk ve Destek
+OpenLane, açık kaynaklı bir donanım tasarım akışı (hardware design flow) aracıdır. Bu araç, özellikle ASIC (Application-Specific Integrated Circuit) tasarım süreçlerini otomatikleştirmek ve bu süreçleri daha erişilebilir hale getirmek amacıyla geliştirilmiştir. OpenLane, RTL (Register Transfer Level) tasarımından başlayarak fiziksel tasarımın tamamlanmasına kadar olan tüm adımları kapsayan bir tasarım akışı sunar. OpenLane, OpenROAD (Open-source EDA) projesinin bir parçası olarak geliştirilmiştir.
 
 ---
 
@@ -163,46 +141,10 @@ OpenLane, modüler bir yapıya sahiptir. Bu yapı, donanım tasarım sürecinin 
 5. Fiziksel Doğrulama (Magic ve Netgen)
 6. GDSII Çıktısı
 
-### OpenLane'in Entegrasyonu ve Esnekliği
-OpenLane, kullandığı araçların birbirleriyle sorunsuz bir şekilde entegre olmasını sağlar. Bu entegrasyon, kullanıcıların tasarım sürecini otomatikleştirmesine ve daha verimli bir şekilde çalışmasına olanak tanır.
-
 ---
 
-## 3. OpenLane Kurulumu ve Gereksinimler
+## 3. OpenLane Kurulumu
 
-### Sistem Gereksinimleri
-- İşletim Sistemi: Linux (Ubuntu 20.04 veya daha yeni sürümler önerilir)
-- İşlemci: Çok çekirdekli bir işlemci (en az 4 çekirdek önerilir)
-- Bellek (RAM): En az 8 GB RAM (16 GB veya daha fazlası önerilir)
-- Depolama: En az 50 GB boş disk alanı
-- Docker: OpenLane, Docker kullanılarak çalıştırılır.
-
-### Docker Kurulumu
-1. Docker'ı indirin ve kurun.
-2. Docker'ı başlatın ve etkinleştirin.
-3. Docker'ı kullanıcı hesabınıza ekleyin.
-4. Docker'ın kurulu olduğunu doğrulayın.
-
-### OpenLane Kurulumu
-1. OpenLane deposunu klonlayın.
-2. Kurulum scriptini çalıştırın.
-3. Kurulumun tamamlandığını doğrulayın.
-
-### OpenLane'i Çalıştırma
-1. Tasarım klasörü oluşturun.
-2. Tasarım dosyalarını ekleyin.
-3. OpenLane'i başlatın.
-4. Tasarım akışını başlatın.
-
-### Karşılaşılabilecek Sorunlar ve Çözümler
-- Docker Erişim Sorunları
-- Yetersiz Sistem Kaynakları
-- PDK Kurulum Sorunları
-
-### OpenLane Kurulumunun Avantajları
-- Kolay Kurulum
-- Taşınabilirlik
-- Topluluk Desteği
 
 ---
 
