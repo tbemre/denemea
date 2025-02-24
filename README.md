@@ -1,9 +1,7 @@
 # OpenLane: Açık Kaynak Donanım Tasarım Akışı
-<<<<<<< HEAD
 # Guide
-=======
+# a
 # deneme
->>>>>>> a02eef4 (emre)
 ## Table of Contents
 1. [Giriş](#giriş)
    - [OpenLane Nedir?](#openlane-nedir)
