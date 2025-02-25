@@ -1,10 +1,10 @@
 # OpenLane: Açık Kaynak Donanım Tasarım Akışı
+
 ## Table of Contents
 1. [Giriş](#giriş)
    - [OpenLane Nedir?](#openlane-nedir)
 
 2. [OpenLane'in Temel Bileşenleri](#openlanein-temel-bileşenleri)
-   - [OpenLane'in Mimarisi](#openlanein-mimarisi)
    - [OpenLane'de Kullanılan Temel Araçlar](#openlanede-kullanılan-temel-araçlar)
      - [Yosys (Sentez Aracı)](#yosys-sentez-aracı)
      - [OpenROAD (Yerleştirme ve Rotalama)](#openroad-yerleştirme-ve-rotalama)
@@ -44,12 +44,7 @@
 ### OpenLane Nedir?
 OpenLane, açık kaynaklı bir donanım tasarım akışı (hardware design flow) aracıdır. Bu araç, özellikle ASIC (Application-Specific Integrated Circuit) tasarım süreçlerini otomatikleştirmek ve bu süreçleri daha erişilebilir hale getirmek amacıyla geliştirilmiştir. OpenLane, RTL (Register Transfer Level) tasarımından başlayarak fiziksel tasarımın tamamlanmasına kadar olan tüm adımları kapsayan bir tasarım akışı sunar. OpenLane, OpenROAD (Open-source EDA) projesinin bir parçası olarak geliştirilmiştir.
 
----
-
 ## 2. OpenLane'in Temel Bileşenleri
-
-### OpenLane'in Mimarisi
-OpenLane, modüler bir yapıya sahiptir. Bu yapı, donanım tasarım sürecinin farklı aşamalarını yöneten bir dizi araçtan oluşur.
 
 ### OpenLane'de Kullanılan Temel Araçlar
 - **Yosys (Sentez Aracı):** RTL tasarımını mantık kapıları seviyesine dönüştürür.
@@ -67,12 +62,9 @@ OpenLane, modüler bir yapıya sahiptir. Bu yapı, donanım tasarım sürecinin 
 5. Fiziksel Doğrulama (Magic ve Netgen)
 6. GDSII Çıktısı
 
----
 
 ## 3. OpenLane Kurulumu
 
-
----
 
 ## 4. OpenLane ile Tasarım Süreci
 
@@ -108,7 +100,6 @@ Tasarım sürecinin son aşamasında, tasarımınız GDSII formatında dışa ak
 - Esneklik
 - Açık Kaynak
 
----
 
 ## 5. OpenLane'in Kullanım Senaryoları
 
@@ -129,8 +120,6 @@ Tasarım sürecinin son aşamasında, tasarımınız GDSII formatında dışa ak
 - **Daha Fazla PDK Desteği:** OpenLane, gelecekte daha fazla PDK'yı destekleyebilir.
 - **Performans İyileştirmeleri:** OpenLane, daha hızlı ve verimli hale gelebilir.
 - **Kullanıcı Dostu Arayüzler:** OpenLane, daha kullanıcı dostu bir arayüz sunabilir.
-
----
 
 ## 6. OpenLane'in Avantajları ve Dezavantajları
 
@@ -181,7 +170,6 @@ OpenLane ile gerçekleştirilmiş birçok örnek proje ve kaynak kod, kullanıc�
 - SkyWater PDK Dokümantasyonu: [https://skywater-pdk.readthedocs.io/](https://skywater-pdk.readthedocs.io/)
 - OpenLane Discord Sunucusu: [https://discord.gg/OpenROAD](https://discord.gg/OpenROAD)
 
----
 
 ## 8. Gelecek Trendleri ve OpenLane'in Gelişimi
 
@@ -201,7 +189,6 @@ OpenLane ile gerçekleştirilmiş birçok örnek proje ve kaynak kod, kullanıc�
 - Bulut Tabanlı Tasarım
 - Yeni Üretim Teknolojileri
 
----
 
 ## 9. Sonuç ve Öneriler
 
@@ -221,7 +208,6 @@ OpenLane, açık kaynaklı bir donanım tasarım akışı aracı olarak, donanı
 - Fiziksel Doğrulamayı Yapın
 - Toplulukla İletişimde Kalın
 
----
 
 ## 10. Ekler
 
