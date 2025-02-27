@@ -54,7 +54,6 @@ OpenLane, açık kaynaklı bir donanım tasarım akışı (hardware design flow)
 
 ![OpenLane Flow Stages](https://github.com/tbemre/denemea/blob/main/images/flow.png)
 
----
 
 ## 2. OpenLane ile Tasarım Süreci
 
@@ -99,98 +98,13 @@ OpenLane, açık kaynaklı bir donanım tasarım akışı (hardware design flow)
 Openlane hardware design flow aracı olduğu için buradaki bir çok aracı kullanarak otomatikleştirmektedir(basit düzeyde). 
 
 ## 3. OpenLane Kurulumu
-(for **Ubunutu**!)
-Detaylı kurulum için [bu](https://www.youtube.com/watch?v=jEGq7JVHGvQ) linki takip ederek gerekli olan tüm temel araçların kulumunu tamamlamış olursunuz.
+**Ubunutu** için [bu](https://www.youtube.com/watch?v=jEGq7JVHGvQ) linki takip ederek gerekli olan tüm temel araçların kulumunu tamamlamış olursunuz.
 
----
-
-
-## 5. OpenLane Kullanımı
+## 4. OpenLane Kullanımı
 
 
----
+
+
+
 
 ## 7. OpenLane ile İlgili Kaynaklar ve Topluluk
-
-### OpenLane Dokümantasyonu
-OpenLane'in resmi dokümantasyonu, kullanıcılar için en önemli kaynaktır. Bu dokümantasyon, OpenLane'in nasıl kurulacağını, nasıl kullanılacağını ve tasarım süreçlerinin nasıl yönetileceğini adım adım açıklar.
-
-### OpenLane GitHub Deposu
-OpenLane'in GitHub deposu, projenin tüm kaynak kodlarını, örnek projeleri ve dokümantasyonu içerir.
-
-### Topluluk Desteği ve Forumlar
-OpenLane, aktif bir topluluk tarafından desteklenir. Bu topluluk, kullanıcıların sorularını yanıtlamak ve projeyi geliştirmek için çalışır.
-
-### Eğitim Materyalleri ve Öğreticiler
-OpenLane'i öğrenmek isteyenler için birçok eğitim materyali ve öğretici bulunmaktadır.
-
-### Örnek Projeler ve Kaynak Kodlar
-OpenLane ile gerçekleştirilmiş birçok örnek proje ve kaynak kod, kullanıcılar için faydalı bir kaynaktır.
-
-### Faydalı Bağlantılar
-- OpenLane Resmi GitHub Sayfası: [https://github.com/The-OpenROAD-Project/OpenLane](https://github.com/The-OpenROAD-Project/OpenLane)
-- OpenROAD Projesi: [https://theopenroadproject.org/](https://theopenroadproject.org/)
-- SkyWater PDK Dokümantasyonu: [https://skywater-pdk.readthedocs.io/](https://skywater-pdk.readthedocs.io/)
-- OpenLane Discord Sunucusu: [https://discord.gg/OpenROAD](https://discord.gg/OpenROAD)
-
-
-
-## 9. Sonuç ve Öneriler
-
-### OpenLane'in Önemi
-OpenLane, açık kaynaklı bir donanım tasarım akışı aracı olarak, donanım tasarım süreçlerini kolaylaştıran ve erişilebilir hale getiren güçlü bir araçtır.
-
-### Yeni Başlayanlar İçin Öneriler
-- Temel Bilgileri Öğrenin
-- OpenLane Dokümantasyonunu İnceleyin
-- Topluluk Desteğinden Yararlanın
-- Pratik Yapın
-- Sürekli Öğrenin
-
-### OpenLane'i Etkili Kullanmak İçin İpuçları
-- Tasarımınızı Modüler Hale Getirin
-- Zamanlama Analizini İhmal Etmeyin
-- Fiziksel Doğrulamayı Yapın
-- Toplulukla İletişimde Kalın
-
-
-## 10. Ekler
-
-### Terimler Sözlüğü
-- **RTL (Register Transfer Level):** Donanımın davranışsal tanımını ifade eden bir tasarım seviyesi.
-- **Sentez (Synthesis):** RTL tasarımının, mantık kapıları seviyesine dönüştürülmesi işlemi.
-- **Yerleştirme (Placement):** Mantık kapılarının fiziksel olarak çip üzerinde yerleştirilmesi işlemi.
-- **Rotalama (Routing):** Mantık kapıları arasındaki bağlantıların oluşturulması işlemi.
-- **Zamanlama Analizi (Timing Analysis):** Tasarımın zamanlama gereksinimlerini karşılayıp karşılamadığının kontrol edilmesi.
-- **Fiziksel Doğrulama (Physical Verification):** Tasarımın fiziksel kurallara uygun olup olmadığının kontrol edilmesi.
-- **PDK (Process Design Kit):** Belirli bir yarı iletken üretim süreci için gerekli bilgileri içeren kit.
-- **GDSII:** Çip üretimi için kullanılan standart bir dosya formatı.
-- **ASIC (Application-Specific Integrated Circuit):** Belirli bir uygulama için tasarlanmış özelleştirilmiş entegre devre.
-- **FPGA (Field-Programmable Gate Array):** Programlanabilir mantık bloklarından oluşan ve tasarım sonrasında yapılandırılabilen bir entegre devre türü.
-
-### Faydalı Bağlantılar ve Referanslar
-- OpenLane Resmi GitHub Sayfası: [https://github.com/The-OpenROAD-Project/OpenLane](https://github.com/The-OpenROAD-Project/OpenLane)
-- OpenROAD Projesi: [https://theopenroadproject.org/](https://theopenroadproject.org/)
-- SkyWater PDK Dokümantasyonu: [https://skywater-pdk.readthedocs.io/](https://skywater-pdk.readthedocs.io/)
-- OpenLane Discord Sunucusu: [https://discord.gg/OpenROAD](https://discord.gg/OpenROAD)
-
-### Örnek Proje Dosyaları ve Kod Parçacıkları
-- **Örnek Verilog Kodu (Basit Bir Tasarım):**
-  ```verilog
-  module my_design (
-      input wire clk,
-      input wire rst,
-      input wire [7:0] data_in,
-      output reg [7:0] data_out
-  );
-      always @(posedge clk or posedge rst) begin
-          if (rst) begin
-              data_out <= 8'b0;
-          end else begin
-              data_out <= data_in;
-          end
-      end
-  endmodule
-  ```
-
-  
