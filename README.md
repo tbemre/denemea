@@ -62,6 +62,7 @@ OpenLane, açık kaynaklı bir donanım tasarım akışı (hardware design flow)
 5. Fiziksel Doğrulama (Magic ve Netgen)
 6. GDSII Çıktısı
 
+![OpenLane Flow Stages](https://github.com/tbemre/denemea/blob/main/images/flow.png)
 
 ## 3. OpenLane Kurulumu
 
