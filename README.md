@@ -3,15 +3,7 @@
 ## Table of Contents
 1. [Giriş](#giriş)
    - [OpenLane Nedir?](#openlane-nedir)
-
-2. [OpenLane'in Temel Bileşenleri](#openlanein-temel-bileşenleri)
    - [OpenLane'de Kullanılan Temel Araçlar](#openlanede-kullanılan-temel-araçlar)
-     - [Yosys (Sentez Aracı)](#yosys-sentez-aracı)
-     - [OpenROAD (Yerleştirme ve Rotalama)](#openroad-yerleştirme-ve-rotalama)
-     - [Magic (Fiziksel Doğrulama)](#magic-fiziksel-doğrulama)
-     - [Netgen (LVS - Layout vs. Schematic)](#netgen-lvs---layout-vs-schematic)
-     - [OpenSTA (Zamanlama Analizi)](#opensta-zamanlama-analizi)
-     - [KLayout (GDSII Görüntüleme ve Düzenleme)](#klayout-gdsii-görüntüleme-ve-düzenleme)
    - [OpenLane Akış Diyagramı](#openlane-akış-diyagramı)
 
 3. [OpenLane ile Tasarım Süreci](#openlane-ile-tasarım-süreci)
@@ -44,8 +36,6 @@
 ### OpenLane Nedir?
 OpenLane, açık kaynaklı bir donanım tasarım akışı (hardware design flow) aracıdır. Bu araç, özellikle ASIC (Application-Specific Integrated Circuit) tasarım süreçlerini otomatikleştirmek ve bu süreçleri daha erişilebilir hale getirmek amacıyla geliştirilmiştir. OpenLane, RTL (Register Transfer Level) tasarımından başlayarak fiziksel tasarımın tamamlanmasına kadar olan tüm adımları kapsayan bir tasarım akışı sunar. OpenLane, OpenROAD (Open-source EDA) projesinin bir parçası olarak geliştirilmiştir.
 
-## 2. OpenLane'in Temel Bileşenleri
-
 ### OpenLane'de Kullanılan Temel Araçlar
 - **Yosys (Sentez Aracı):** RTL tasarımını mantık kapıları seviyesine dönüştürür.
 - **OpenROAD (Yerleştirme ve Rotalama):** Mantık kapılarının fiziksel olarak yerleştirilmesini ve bağlantılarının oluşturulmasını sağlar.
@@ -64,8 +54,91 @@ OpenLane, açık kaynaklı bir donanım tasarım akışı (hardware design flow)
 
 ![OpenLane Flow Stages](https://github.com/tbemre/denemea/blob/main/images/flow.png)
 
+---
+
+## 2. OpenLane ile Tasarım Süreci
+
+### RTL Tasarımı
+RTL (Register Transfer Level) tasarımı, donanımın davranışsal tanımını içerir. Bu aşamada, tasarımınızı Verilog veya VHDL gibi bir donanım tanımlama dili kullanarak oluşturursunuz.
+
+### Synthesis
+Sentez aşamasında, RTL tasarımı mantık kapıları seviyesine dönüştürülür. Bu aşama, Yosys aracı tarafından gerçekleştirilir.
+
+### Yerleştirme ve Rotalama (Placement and Routing)
+Yerleştirme ve rotalama aşaması, OpenROAD aracı tarafından gerçekleştirilir. Bu aşamada, mantık kapıları fiziksel olarak yerleştirilir ve birbirleriyle bağlantıları oluşturulur.
+
+### Zamanlama Analizi (Timing Analysis)
+Zamanlama analizi, tasarımın zamanlama gereksinimlerini karşılayıp karşılamadığını kontrol eder. Bu aşama, OpenSTA aracı tarafından gerçekleştirilir.
+
+### Fiziksel Doğrulama (Physical Verification)
+Fiziksel doğrulama, tasarımın fiziksel kurallara uygun olup olmadığını kontrol eder. Bu aşama, Magic ve Netgen araçları tarafından gerçekleştirilir.
+
+### GDSII Çıktısı
+Tasarım sürecinin son aşamasında, tasarımınız GDSII formatında dışa aktarılır. GDSII, çip üretimi için kullanılan standart bir dosya formatıdır.
+
+
+Aşağıda, belirttiğiniz başlıklar altındaki araçların tanımlarını ve yaptıklarını 2-3 cümleyle açıklıyorum:
+
+---
+
+### **Synthesis**
+- **Yosys**: RTL (Register Transfer Level) kodunu sentezleyerek mantık kapılarına dönüştürür ve teknoloji haritalama işlemi gerçekleştirir. Bu, tasarımın donanım uyumlu hale getirilmesi için ilk adımdır.
+- **OpenSTA**: Sentezlenmiş netlist üzerinde statik zamanlama analizi yaparak, tasarımın zamanlama gereksinimlerini karşılayıp karşılamadığını kontrol eder ve zamanlama raporları oluşturur.
+
+---
+
+### **Floorplaning**
+- **OpenROAD/Initialize Floorplan**: Tasarımın çekirdek alanını, makro blokların yerleşimi için satırları ve yönlendirme için izleri tanımlar. Bu, fiziksel tasarımın temelini oluşturur.
+- **OpenLane IO Placer**: Tasarımın giriş ve çıkış portlarını yerleştirir. Bu, sinyallerin doğru şekilde bağlanabilmesi için kritik bir adımdır.
+- **OpenROAD/PDN Generator**: Güç dağıtım ağını (Power Distribution Network) oluşturur. Bu, tasarımın güç ve toprak bağlantılarını sağlamak için gereklidir.
+- **OpenROAD/Tapcell**: Welltap ve endcap hücrelerini yerleştirir. Bu hücreler, sızıntı akımlarını önlemek ve tasarımın fiziksel kurallara uygun olmasını sağlamak için kullanılır.
+
+---
+
+### **Placement**
+- **OpenROAD/RePlace**: Global yerleştirme işlemi gerçekleştirir. Bu, tasarım bileşenlerinin yaklaşık olarak nereye yerleştirileceğini belirler.
+- **OpenROAD/Resizer**: İsteğe bağlı olarak tasarım üzerinde optimizasyonlar yapar. Örneğin, hücre boyutlarını ayarlayarak performansı artırabilir.
+- **OpenROAD/OpenDP**: Global yerleştirme sonrası bileşenlerin kesin yerlerini belirleyerek legalizasyon işlemi gerçekleştirir.
+
+---
+
+### **CTS (Clock Tree Synthesis)**
+- **OpenROAD/TritonCTS**: Saat dağıtım ağını (clock tree) sentezler. Bu, saat sinyalinin tüm tasarımda eşit şekilde dağıtılmasını sağlar.
+
+---
+
+### **Routing**
+- **OpenROAD/FastRoute**: Global yönlendirme işlemi yaparak, detaylı yönlendirici için bir kılavuz dosyası oluşturur. Bu, sinyallerin genel rotalarını belirler.
+- **OpenROAD/TritonRoute**: Detaylı yönlendirme işlemi gerçekleştirir. Bu, sinyallerin kesin bağlantılarını oluşturur.
+- **OpenROAD/OpenRCX**: SPEF (Standard Parasitic Exchange Format) dosyası çıkarır. Bu, tasarımın parazitik etkilerini modellemek için kullanılır.
+
+---
+
+### **Tapeout**
+- **Magic**: Yönlendirilmiş DEF dosyasından final GDSII layout dosyasını oluşturur. GDSII, üretim için kullanılan standart bir dosya formatıdır.
+- **KLayout**: Magic'e alternatif olarak GDSII dosyasını oluşturur. Bu, yedekleme amacıyla kullanılabilir.
+
+---
+
+### **Signoff**
+- **Magic**: DRC (Design Rule Check) ve Antenna Check işlemlerini gerçekleştirir. Bu, tasarımın üretim kurallarına uygun olup olmadığını kontrol eder.
+- **Magic**: İki GDSII dosyası arasında XOR kontrolü yaparak tutarlılığı doğrular.
+- **Netgen**: LVS (Layout vs. Schematic) kontrolü yapar. Bu, layoutun orijinal şematikle eşleştiğini doğrular.
+
+---
+
+Bu araçlar, OpenLane akışında ücretsiz, açık kaynaklı ve özgür yazılımlar olarak kullanılır. OpenLane, Apache 2.0 lisansı altında olmasına rağmen, bazı araçlar daha katı lisanslara sahip olabilir.
+
+
+
+
+---
+
 ## 3. OpenLane Kurulumu
 
+Detaylı kurulum için ["bu"](https://www.youtube.com/watch?v=jEGq7JVHGvQ) linki takip ederek gerekli olan tüm temel araçların kulumunu tamamlamış olursunuz.
+
+---
 
 ## 4. OpenLane ile Tasarım Süreci
 
@@ -87,64 +160,10 @@ Fiziksel doğrulama, tasarımın fiziksel kurallara uygun olup olmadığını ko
 ### GDSII Çıktısı
 Tasarım sürecinin son aşamasında, tasarımınız GDSII formatında dışa aktarılır. GDSII, çip üretimi için kullanılan standart bir dosya formatıdır.
 
-### Tasarım Sürecinin Özeti
-1. RTL Tasarımı
-2. Sentez
-3. Yerleştirme ve Rotalama
-4. Zamanlama Analizi
-5. Fiziksel Doğrulama
-6. GDSII Çıktısı
-
-### OpenLane ile Tasarımın Avantajları
-- Otomasyon
-- Hız
-- Esneklik
-- Açık Kaynak
 
 
-## 5. OpenLane'in Kullanım Senaryoları
+## 5. OpenLane Kullanımı
 
-### Akademik Projelerde OpenLane Kullanımı
-- **Eğitim Amaçlı Kullanım:** OpenLane, öğrencilere donanım tasarım süreçlerini öğretmek için kullanılır.
-- **Araştırma Projeleri:** OpenLane, yeni tasarım yöntemleri ve optimizasyon teknikleri geliştirmek için kullanılır.
-
-### Endüstriyel Uygulamalarda OpenLane Kullanımı
-- **Prototip Geliştirme:** OpenLane, hızlı bir şekilde prototip geliştirmeyi sağlar.
-- **Özelleştirilmiş Çipler (ASIC):** OpenLane, özelleştirilmiş çiplerin tasarımında kullanılır.
-
-### Açık Kaynak Donanım Projeleri
-- **SkyWater PDK ile Entegrasyon:** OpenLane, SkyWater PDK gibi açık kaynaklı PDK'ları destekler.
-- **Topluluk Projeleri:** OpenLane ile geliştirilmiş birçok açık kaynak donanım projesi bulunmaktadır.
-
-### OpenLane'in Gelecekteki Kullanım Senaryoları
-- **Yapay Zeka Destekli Tasarım:** AI, tasarım süreçlerini optimize etmek için kullanılabilir.
-- **Daha Fazla PDK Desteği:** OpenLane, gelecekte daha fazla PDK'yı destekleyebilir.
-- **Performans İyileştirmeleri:** OpenLane, daha hızlı ve verimli hale gelebilir.
-- **Kullanıcı Dostu Arayüzler:** OpenLane, daha kullanıcı dostu bir arayüz sunabilir.
-
-## 6. OpenLane'in Avantajları ve Dezavantajları
-
-### OpenLane'in Avantajları
-- Açık Kaynak Olması
-- Otomatik Tasarım Akışı
-- Esneklik ve Özelleştirme
-- Düşük Maliyet
-- Eğitim ve Araştırma İçin İdeal
-
-### OpenLane'in Dezavantajları ve Sınırlamaları
-- Karmaşık Tasarımlar İçin Sınırlamalar
-- PDK Desteği
-- Öğrenme Eğrisi
-- Topluluk Bağımlılığı
-
-### OpenLane'in Avantaj ve Dezavantajlarının Özeti
-| **Avantajlar**                          | **Dezavantajlar**                        |
-|-----------------------------------------|------------------------------------------|
-| Açık kaynak ve ücretsiz                 | Karmaşık tasarımlar için sınırlamalar    |
-| Otomatik tasarım akışı                  | Sınırlı PDK desteği                     |
-| Esneklik ve özelleştirme imkanı         | Öğrenme eğrisi yüksek olabilir           |
-| Düşük maliyet                           | Topluluk bağımlılığı                    |
-| Eğitim ve araştırma için ideal          | Performans sınırlamaları                |
 
 ---
 
