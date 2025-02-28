@@ -29,8 +29,6 @@
    - [Örnek Projeler ve Kaynak Kodlar](#örnek-projeler-ve-kaynak-kodlar)
    - [Faydalı Bağlantılar](#faydalı-bağlantılar)
 
----
-
 ## 1. Giriş
 
 ### OpenLane Nedir?
@@ -102,7 +100,16 @@ Openlane hardware design flow aracı olduğu için buradaki bir çok aracı kull
 
 ## 4. OpenLane Kullanımı
 
-
+spm testi
+tag olayından hahsetme
+proje oluşturulması
+inverter yapımı
+yoysy ayarı
+floorplaning ayarı
+mux yapımı
+yapabileceğin diğer ayarlardan bahsederek ilerleyebilirsin
+iverilog ile kodu test etme
+xscehm kullanımı inverter yapımı ve testi
 
 
 
