@@ -146,6 +146,9 @@ python3 gui.py --viewer openroad ./designs/spm/runs/spm-run/
 ```
 ![spm gui](https://github.com/tbemre/denemea/blob/main/images/spm_openroad_gui.png)
 
+### Make project
+
+
 
 
 ## 7. OpenLane ile İlgili Kaynaklar ve Topluluk
