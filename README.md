@@ -122,7 +122,7 @@ burayı openlane container olarak adandırıyorum. Openlane örnek dizaynını �
 ```Openlane container
 ./flow.tcl -design spm
 ```
-kurulumu doğru şekilde yapılmışsa herhangi bir hata ile karşılaşılmaz ve akış tamamlanır. Sonuçlar `design/spm/runs/RUN_20xx.xx/results/final` klasöründe oluşacaktır.
+kurulumu doğru şekilde yapılmışsa herhangi bir hata ile karşılaşılmaz ve akış tamamlanır. çalışma sonuçları `design/spm/runs/RUN_20xx.xx/results/final` klasöründe oluşacaktır.
 Open the result file(gds) with klayout:
 ```Openlane container
 klayout design/spm/runs/RUN_20xx.xx/results/final/gds/spm.gds
@@ -133,11 +133,19 @@ Open the magic file:
 magic design/spm/runs/RUN_20xx.xx/results/final/mag/spm.mag
 ```
 ![spm magic](https://github.com/tbemre/denemea/blob/main/images/spm_magic.png)
+
+proje her çalıştığında yeni bir RUN_20xx.xx klasörü oluşacaktır. Tarih ve saati içeren bilgiler sizin için önemli değilse ve karmaşadan kurtulmak istiyorsanız `-tag` argümanını kullanmak en mantıklısı.
+ ```Openlane container
+./flow.tcl -design spm -tag spm-run
+```
+artık çalışma sonuçları `design/spm/runs/spm-run/results/final` şeklinde yol almaktadır. `-overwrite` argümanı aynı taga sahip çalışmanın üzerine yazmaya yarar. beraber kullanılması mantıklı olacaktır.
+
 Open the def file with OpenRoad GUI:
 ```Openlane container
-python3 gui.py --viewer openroad ./designs/spm/runs/RUN_20xx.xx/
+python3 gui.py --viewer openroad ./designs/spm/runs/spm-run/
 ```
 ![spm gui](https://github.com/tbemre/denemea/blob/main/images/spm_openroad_gui.png)
+
 
 
 ## 7. OpenLane ile İlgili Kaynaklar ve Topluluk
