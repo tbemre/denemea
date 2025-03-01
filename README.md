@@ -116,9 +116,11 @@ openlane ile çalışmak için
 cd Openlane
 make mount
 ```
-![Openlane Terminal]()
-burayı openlane container olarak adandırıyorum.
-
+![Openlane Terminal](https://github.com/tbemre/denemea/blob/main/images/Openlane_container.png)
+burayı openlane container olarak adandırıyorum. Openlane örnek dizaynını çalıştırarak işe başlayabiliriz.
+```Openlane container
+./flow.tcl -design spm
+```
 
 
 
