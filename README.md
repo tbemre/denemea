@@ -100,7 +100,7 @@ Openlane hardware design flow aracı olduğu için buradaki bir çok aracı kull
 
 ## 4. OpenLane Kullanımı
 
-spm testi /n
+spm testi
 tag olayından hahsetme
 proje oluşturulması
 inverter yapımı
@@ -110,6 +110,15 @@ mux yapımı
 yapabileceğin diğer ayarlardan bahsederek ilerleyebilirsin
 iverilog ile kodu test etme
 xscehm kullanımı inverter yapımı ve testi
+
+openlane ile çalışmak için
+```bash
+cd Openlane
+make mount
+```
+![Openlane Terminal]()
+burayı openlane container olarak adandırıyorum.
+
 
 
 
