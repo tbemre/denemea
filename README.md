@@ -100,7 +100,7 @@ Openlane hardware design flow aracı olduğu için buradaki bir çok aracı kull
 
 ## 4. OpenLane Kullanımı
 
-spm testi
+spm testi /n
 tag olayından hahsetme
 proje oluşturulması
 inverter yapımı
