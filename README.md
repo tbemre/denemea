@@ -118,10 +118,23 @@ make mount
 ```
 ![Openlane Terminal](https://github.com/tbemre/denemea/blob/main/images/Openlane_container.png)
 burayı openlane container olarak adandırıyorum. Openlane örnek dizaynını çalıştırarak işe başlayabiliriz.
+
 ```Openlane container
 ./flow.tcl -design spm
 ```
-
+kurulumu doğru şekilde yapılmışsa herhangi bir hata ile karşılaşılmaz ve akış tamamlanır. Sonuçlar `design/spm/runs/RUN_20xx.xx/results/final` klasöründe oluşacaktır.
+Open the result file(gds) with klayout:
+```Openlane container
+klayout design/spm/runs/RUN_20xx.xx/results/final/gds/spm.gds
+```
+Open the magic file:
+```Openlane container
+magic design/spm/runs/RUN_20xx.xx/results/final/mag/spm.mag
+```
+Open the def file with OpenRoad GUI:
+```Openlane container
+python3 gui.py --viewer openroad ./designs/spm/runs/RUN_20xx.xx/
+```
 
 
 
