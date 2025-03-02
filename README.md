@@ -178,7 +178,7 @@ module inverter(
 assign out = ~in;
 endmodule
 ```
-bu adımda projeyi çalıştırmaya çalışmak hatalı olacaktık çünkü varsayılan alandan çok daha küçük bir alan kullandığı için **Floorplaning** adımında hata alacaktır. şimdiki adımları uygulamadan projeyi çalıştırıp hata ile karşılaşmak ve kendiniz çözmeniz sizi büyük oranda geliştirir. bu hata düzeltmek için dökümantasyondaki [Flow Configuration Variables](https://openlane.readthedocs.io/en/latest/reference/configuration.html#floorplanning-fp) kısmından `FP_SIZING` `DIE_AREA` `PL_TARGET_DENSITY` `FP_PDN_AUTO_ADJUST` `FP_PDN_VPITCH` `FP_PDN_HPITCH` `FP_PDN_VOFFSET` `FP_PDN_HOFFSET` değişkenlerini anlamanız gerekiyor. `config.json` dosyasından bu değişkenlerin değerlerini değiştirmeliyiz.
+bu adımda projeyi çalıştırmaya çalışmak hatalı olacaktık çünkü varsayılan alandan çok daha küçük bir alan kullandığı için **Floorplaning** adımında hata alacaktır. şimdiki adımları uygulamadan projeyi çalıştırıp hata ile karşılaşmak ve kendiniz çözmeniz sizi büyük oranda geliştirir. bu hata düzeltmek için dökümantasyondaki [Flow Configuration Variables](https://openlane.readthedocs.io/en/latest/reference/configuration.html#floorplanning-fp) kısmından `FP_SIZING` `DIE_AREA` değişkenlerini anlamanız gerekiyor. `config.json` dosyasından bu değişkenlerin değerlerini değiştirmeliyiz.
 
 ```bash
 {
@@ -191,12 +191,9 @@ bu adımda projeyi çalıştırmaya çalışmak hatalı olacaktık çünkü vars
     "DIE_AREA": "0 0 40 50",
 }
 ```
+inverter tam olarak doğru olmasa da çalışacaktır ve aşağıdaki çıktıyı verecektir.
 
-
-
-
-
-
+![inverter layout](https://github.com/tbemre/denemea/blob/main/images/inverter_layout.png)
 
 
 ## 7. OpenLane ile İlgili Kaynaklar ve Topluluk
