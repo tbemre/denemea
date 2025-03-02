@@ -160,7 +160,8 @@ designs/<design_name>
 ```
 `src`klasörünün içine verilog dosyası oluşturulması gerekmektedir. Proje buradaki verilog dosyası üzerinden şekil alacaktır.
 
-<p>**Inverter**</p>
+**Inverter**
+
 inverter yapmak deneysel olarak Openlane'i anlamak için mantıklı bir projedir. yapımı oldukça basittir. işe proje dosyası oluşturmakla başlayalım.
 
 ```bash
