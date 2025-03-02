@@ -100,13 +100,6 @@ Openlane hardware design flow aracı olduğu için buradaki bir çok aracı kull
 
 ## 4. OpenLane Kullanımı
 
-spm testi
-tag olayından hahsetme
-proje oluşturulması
-inverter yapımı
-mux yapımı
-xscehm kullanımı inverter yapımı ve testi
-
 openlane ile çalışmak için
 ```bash
 cd Openlane
@@ -247,4 +240,10 @@ artık çalışan bir multiplexer'a sahibiz.
 
 
 
-## 7. OpenLane ile İlgili Kaynaklar ve Topluluk
+## 7. OpenLane ile İlgili Kaynaklar 
+
+[Openlane Dokümantasyonu](https://openlane.readthedocs.io/en/latest/)
+[Örnek Projeler](https://github.com/efabless/openlane-ci-designs/)
+
+
+emre çalışkan tarafından hazırlanmıştır.
