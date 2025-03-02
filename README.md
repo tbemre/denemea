@@ -242,8 +242,5 @@ artık çalışan bir multiplexer'a sahibiz.
 
 ## 7. OpenLane ile İlgili Kaynaklar 
 
-[Openlane Dokümantasyonu](https://openlane.readthedocs.io/en/latest/)
+[Openlane Dokümantasyonu](https://openlane.readthedocs.io/en/latest/)\
 [Örnek Projeler](https://github.com/efabless/openlane-ci-designs/)
-
-
-emre çalışkan tarafından hazırlanmıştır.
