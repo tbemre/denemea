@@ -6,7 +6,7 @@
    - [OpenLane'de Kullanılan Temel Araçlar](#openlanede-kullanılan-temel-araçlar)
    - [OpenLane Akış Diyagramı](#openlane-akış-diyagramı)
 
-3. [OpenLane ile Tasarım Süreci](#openlane-ile-tasarım-süreci)
+2. [OpenLane ile Tasarım Süreci](#openlane-ile-tasarım-süreci)
    - [RTL Tasarımı](#rtl-tasarımı)
    - [Synthesis](#sentez-synthesis)
    - [Floorplaning](#floorplaning)
@@ -17,17 +17,11 @@
    - [Signoff](#signoff)
    - [Tasarım Sürecinin Özeti](#tasarım-sürecinin-özeti)
 
-4. [OpenLane Kurulumu](#openlane-kurulumu)
+3. [OpenLane Kurulumu](#openlane-kurulumu)
 
-5. [Openlane Kullanımı](#openlane-kullanımı)
+4. [Openlane Kullanımı](#openlane-kullanımı)
 
-6. [OpenLane ile İlgili Kaynaklar ve Topluluk](#openlane-ile-ilgili-kaynaklar-ve-topluluk)
-   - [OpenLane Dokümantasyonu](#openlane-dokümantasyonu)
-   - [OpenLane GitHub Deposu](#openlane-github-deposu)
-   - [Topluluk Desteği ve Forumlar](#topluluk-desteği-ve-forumlar)
-   - [Eğitim Materyalleri ve Öğreticiler](#eğitim-materyalleri-ve-öğreticiler)
-   - [Örnek Projeler ve Kaynak Kodlar](#örnek-projeler-ve-kaynak-kodlar)
-   - [Faydalı Bağlantılar](#faydalı-bağlantılar)
+5. [OpenLane ile İlgili Kaynaklar ve Topluluk](#openlane-ile-ilgili-kaynaklar-ve-topluluk)
 
 ## 1. Giriş
 
@@ -240,7 +234,7 @@ artık çalışan bir multiplexer'a sahibiz.
 
 
 
-## 7. OpenLane ile İlgili Kaynaklar 
+## 5. OpenLane ile İlgili Kaynaklar 
 
 [Openlane Dokümantasyonu](https://openlane.readthedocs.io/en/latest/)\
 [Örnek Projeler](https://github.com/efabless/openlane-ci-designs/)
