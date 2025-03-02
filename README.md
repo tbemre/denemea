@@ -105,7 +105,6 @@ tag olayından hahsetme
 proje oluşturulması
 inverter yapımı
 mux yapımı
-iverilog ile kodu test etme
 xscehm kullanımı inverter yapımı ve testi
 
 openlane ile çalışmak için
@@ -243,5 +242,9 @@ A.*
     "FP_PIN_ORDER_CFG": "dir::pin_order.cfg",
 ```
 ![mux layout pin order](https://github.com/tbemre/denemea/blob/main/images/mux_layout2.png)
+
+artık çalışan bir multiplexer'a sahibiz.
+
+
 
 ## 7. OpenLane ile İlgili Kaynaklar ve Topluluk
