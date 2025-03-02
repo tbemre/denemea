@@ -119,34 +119,82 @@ make mount
 ![Openlane Terminal](https://github.com/tbemre/denemea/blob/main/images/Openlane_container.png)
 burayı openlane container olarak adandırıyorum. Openlane örnek dizaynını çalıştırarak işe başlayabiliriz.
 
-```Openlane container
+```bash
 ./flow.tcl -design spm
 ```
 kurulumu doğru şekilde yapılmışsa herhangi bir hata ile karşılaşılmaz ve akış tamamlanır. çalışma sonuçları `design/spm/runs/RUN_20xx.xx/results/final` klasöründe oluşacaktır.
 Open the result file(gds) with klayout:
-```Openlane container
+```bash
 klayout design/spm/runs/RUN_20xx.xx/results/final/gds/spm.gds
 ```
 ![spm Klayout](https://github.com/tbemre/denemea/blob/main/images/spm_klayot.png)
 Open the magic file:
-```Openlane container
+```bash
 magic design/spm/runs/RUN_20xx.xx/results/final/mag/spm.mag
 ```
 ![spm magic](https://github.com/tbemre/denemea/blob/main/images/spm_magic.png)
 
 proje her çalıştığında yeni bir RUN_20xx.xx klasörü oluşacaktır. Tarih ve saati içeren bilgiler sizin için önemli değilse ve karmaşadan kurtulmak istiyorsanız `-tag` argümanını kullanmak en mantıklısı.
- ```Openlane container
+ ```bash
 ./flow.tcl -design spm -tag spm-run
 ```
 artık çalışma sonuçları `design/spm/runs/spm-run/results/final` şeklinde yol almaktadır. `-overwrite` argümanı aynı taga sahip çalışmanın üzerine yazmaya yarar. beraber kullanılması mantıklı olacaktır.
 
 Open the def file with OpenRoad GUI:
-```Openlane container
+```bash
 python3 gui.py --viewer openroad ./designs/spm/runs/spm-run/
 ```
 ![spm gui](https://github.com/tbemre/denemea/blob/main/images/spm_openroad_gui.png)
 
 ### Make project
+
+yeni bir dizayn oluşturmak için aşağıdaki komut kullanılabilir.
+```bash
+./flow.tcl -design <design_name> -init_design_config -add_to_designs
+```
+bu komut aşağıdaki gibi dizin oluşturacaktık.
+```bash
+designs/<design_name>
+├── config.json
+├── src/
+```
+`src`klasörünün içine verilog dosyası oluşturulması gerekmektedir. Proje buradaki verilog dosyası üzerinden şekil alacaktır.
+
+<p>**Inverter**</p>
+inverter yapmak deneysel olarak Openlane'i anlamak için mantıklı bir projedir. yapımı oldukça basittir. işe proje dosyası oluşturmakla başlayalım.
+
+```bash
+./flow.tcl -design inverter -init_design_config -add_to_designs
+cd designs/inverter/src
+touch inverter.v
+```
+gerekli dosyalar oluşturulduktan sonra verilog kodu yazılmalı.
+
+```bash
+module inverter(
+	input in,
+	output out
+);
+assign out = ~in;
+endmodule
+```
+bu adımda projeyi çalıştırmaya çalışmak hatalı olacaktık çünkü varsayılan alandan çok daha küçük bir alan kullandığı için **Floorplaning** adımında hata alacaktır. şimdiki adımları uygulamadan projeyi çalıştırıp hata ile karşılaşmak ve kendiniz çözmeniz sizi büyük oranda geliştirir. bu hata düzeltmek için dökümantasyondaki [Flow Configuration Variables](https://openlane.readthedocs.io/en/latest/reference/configuration.html#floorplanning-fp) kısmından `FP_SIZING` `DIE_AREA` `PL_TARGET_DENSITY` `FP_PDN_AUTO_ADJUST` `FP_PDN_VPITCH` `FP_PDN_HPITCH` `FP_PDN_VOFFSET` `FP_PDN_HOFFSET` değişkenlerini anlamanız gerekiyor. `config.json` dosyasından bu değişkenlerin değerlerini değiştirmeliyiz.
+
+```bash
+{
+    "DESIGN_NAME": "inverter",
+    "VERILOG_FILES": "dir::src/*.v",
+    "RUN_CTS": false,
+    "CLOCK_PORT": null,
+    "PL_RANDOM_GLB_PLACEMENT": true,
+    "FP_SIZING": "absolute",
+    "DIE_AREA": "0 0 40 50",
+}
+```
+
+
+
+
 
 
 
