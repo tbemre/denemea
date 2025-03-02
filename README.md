@@ -96,7 +96,7 @@ OpenLane, açık kaynaklı bir donanım tasarım akışı (hardware design flow)
 Openlane hardware design flow aracı olduğu için buradaki bir çok aracı kullanarak otomatikleştirmektedir(basit düzeyde). 
 
 ## 3. OpenLane Kurulumu
-**Ubunutu** için [bu](https://www.youtube.com/watch?v=jEGq7JVHGvQ) linki takip ederek gerekli olan tüm temel araçların kulumunu tamamlamış olursunuz.
+**Ubuntu** için [bu](https://www.youtube.com/watch?v=jEGq7JVHGvQ) linki takip ederek gerekli olan tüm temel araçların kulumunu tamamlamış olursunuz.
 
 ## 4. OpenLane Kullanımı
 
@@ -104,10 +104,7 @@ spm testi
 tag olayından hahsetme
 proje oluşturulması
 inverter yapımı
-yoysy ayarı
-floorplaning ayarı
 mux yapımı
-yapabileceğin diğer ayarlardan bahsederek ilerleyebilirsin
 iverilog ile kodu test etme
 xscehm kullanımı inverter yapımı ve testi
 
@@ -207,62 +204,44 @@ designs/mux8_1
 ```
 projeyi oluşturduktan sonra `mux8_1.v` kodlanabilir.
 
-`mux8_1.v`
+[mux8_1.v]()
+`config.json`
 ```bash
-module mux8_1 (A,S,Y);
-    
-    input wire [7:0] A;
-    input wire [2:0] S;
-    output Y;
-
-    wire road1,road2,road3;
-
-    mux4_1 mux0 (.S(S[1:0]),.A(A[7:4]),.Y(road1));
-    mux4_1 mux1 (.S(S[1:0]),.A(A[3:0]),.Y(road2));
-
-    mux2_1 mux2 (.X(road3),.A0(road1),.A1(road2),.S(S[2]));
-
-    assign Y = road3;
-
-endmodule
-
-module mux4_1 (
-    S   ,
-    A   ,
-    Y 
-);
-    input wire [1:0] S;
-    input wire [3:0] A;
-    output reg Y;
-
-    always @(*) begin
-        case (S)
-            2'b00: Y = A[0];
-            2'b01: Y = A[1]; 
-            2'b10: Y = A[2]; 
-            2'b11: Y = A[3]; 
-            default: Y = 0;
-        endcase
-    end
-endmodule
-
-module mux2_1 (
-    X   ,
-    A0  ,
-    A1  ,
-    S 
-);
-    input wire A0,A1,S;
-    output reg X;
-    always @(*) begin
-        if(S)
-            X = A1;
-        else
-            X = A0;
-    end
-endmodule
+{
+    "DESIGN_NAME": "mux8_1",
+    "VERILOG_FILES": "dir::src/*.v",
+    "CLOCK_PORT": null,
+    "FP_SIZING": "absolute",
+    "DIE_AREA": "0 0 50 50",
+    "FP_PDN_AUTO_ADJUST": false,
+    "FP_PDN_VPITCH": 30,
+    "FP_PDN_HPITCH": 30,
+    "FP_PDN_VOFFSET": 1.8,
+    "FP_PDN_HOFFSET": 1.8
+}
 ```
-verilog kodu ayarlandıktan sonra 
+proje bu noktada tamamlanmıştır. eğer bir sorun oluşmadıysa aşağıdaki çıktıyı elde etmeniz gerekiyor.
+![mux layout](https://github.com/tbemre/denemea/blob/main/images/mux_layout.png)
+eğer pinleri incelediysen rastgele şekilde dağıldığını göreceksiniz bunu önlemek için pinlerin konumlarını belittiğimiz dosyas oluşturmamız gerekiyor. örnek olarak `spm/pin_order.cfg` verebiliriz. proje klasörüne **pin_order.cfg** dosyası oluşturup pin konumları belirlenebilir.
 
+`pin_order.cfg`
+```bash
+#N
+
+#S
+@min_distance=0.2
+S.*
+#E
+Y
+#W
+@min_distance=0.1
+A.*
+```
+`config.json` dosyasında aşağıdaki değişkenleri ayarlamalıyız.
+```bash
+    "//": "Pin Order",
+    "FP_PIN_ORDER_CFG": "dir::pin_order.cfg",
+```
+![mux layout pin order](https://github.com/tbemre/denemea/blob/main/images/mux_layout2.png)
 
 ## 7. OpenLane ile İlgili Kaynaklar ve Topluluk
