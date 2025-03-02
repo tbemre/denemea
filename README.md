@@ -172,7 +172,7 @@ bu adımda projeyi çalıştırmaya çalışmak hatalı olacaktık çünkü vars
     "CLOCK_PORT": null,
     "PL_RANDOM_GLB_PLACEMENT": true,
     "FP_SIZING": "absolute",
-    "DIE_AREA": "0 0 40 50",
+    "DIE_AREA": "0 0 40 50"
 }
 ```
 inverter tam olarak doğru olmasa da çalışacaktır ve aşağıdaki çıktıyı verecektir.
